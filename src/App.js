@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Registration from './Component/Registration';
+import { useSelector } from 'react-redux';
+import StepTwo from './Component/StepTwo';
+import StepThree from './Component/StepThree';
+
+
+
 
 function App() {
+  const { route } = useSelector((state) => state.form);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   
+  
+    route === 0 ?
+      <Registration /> 
+      :
+       
+      route === 1 ?
+      <StepTwo /> 
+      :
+  
+      <StepThree /> 
+     
+   
+ );
 }
-
 export default App;
